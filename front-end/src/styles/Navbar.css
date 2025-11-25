@@ -1,0 +1,131 @@
+/* --- Navbar principale --- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 55px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(14px);
+  background: rgba(255, 254, 236, 0.65);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 24px rgba(229, 59, 62, 0.1);
+  z-index: 999;
+  transition: all 0.5s ease-in-out;
+}
+
+.navbar.scrolled {
+  background: rgba(255, 254, 236, 0.98);
+  box-shadow: 0 6px 30px rgba(229, 59, 62, 0.25);
+  height: 65px;
+}
+
+/* --- Logo --- */
+.navbar-logo img {
+  margin-left: 20px;
+  height: 55px;
+  cursor: pointer;
+  transition: transform 0.4s ease, filter 0.3s ease;
+}
+
+.navbar-logo img:hover {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 12px rgb(255, 0, 4));
+}
+
+/* --- Liens --- */
+.navbar-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.navbar-links a {
+  position: relative;
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: #1E1E1E;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 5px 0;
+  transition: all 0.3s ease;
+}
+
+.navbar-links a::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(90deg, #E53B3E, #D9A441);
+  transition: width 0.4s ease, opacity 0.3s ease;
+  border-radius: 10px;
+}
+
+.navbar-links a:hover,
+.navbar a.active-link {
+  color: #E53B3E;
+  transform: translateY(-2px);
+}
+
+.navbar-links a:hover::before,
+.navbar a.active-link::before {
+  width: 100%;
+  opacity: 1;
+}
+
+/* --- Bouton admin --- */
+.navbar-admin a {
+  margin-right: 20px;
+  color: #FFFEEC;
+  text-decoration: none;
+  padding: 10px 25px;
+  border-radius: 40px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFEEC;
+  background: linear-gradient(135deg, #D9A441, #E53B3E);
+  background-color: #E53B3E;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar-admin a:hover {
+  transform: scale(1.03);
+  background: linear-gradient(135deg, #E53B3E, #d9a441a1);
+  box-shadow: 0 4px 20px rgba(229, 59, 62, 0.4);
+}
+
+/* --- Responsive --- */
+@media (max-width: 950px) {
+  .navbar {
+    flex-direction: column;
+    padding: 12px 25px;
+    height: auto;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+  }
+
+  .navbar-admin {
+    margin-top: 10px;
+  }
+}
+
+/* --- Contenu principal sous navbar --- */
+.main-content {
+  padding-top: 75px; /* pour que le contenu ne soit pas caché */
+  background-color: #FFFEEC;
+  min-height: calc(100vh - 100px);
+}
