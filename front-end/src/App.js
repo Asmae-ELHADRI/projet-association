@@ -4,6 +4,7 @@ import Footer from './components/footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import Artists from './pages/Artists';
+import ArtistApply from "./pages/ArtistApply";
 import Guests from './pages/Guests';
 import Contact from './pages/Contact';
 import AdminDashboard from './pages/AdminDashboard';
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/artists" element={<Artists />} />
+          <Route path="/artist-apply" element={<ArtistApply />} />
           <Route path="/guests" element={<Guests />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/admin" element={<AdminDashboard />} />
