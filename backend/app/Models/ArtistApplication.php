@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Guest extends Model
+class ArtistApplication extends Model
 {
     protected $fillable = [
         'name',
+        'email',
         'specialty',
-        'bio',
-        'portfolio_url',
-        'image_path',
+        'message',
+        'portfolio_file',
+        'status',
     ];
 }

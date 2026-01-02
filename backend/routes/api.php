@@ -2,60 +2,32 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\ArtistController;
+use App\Http\Controllers\API\EventController;
+use App\Http\Controllers\API\AnnouncementController;
+use App\Http\Controllers\API\MemberController;
+use App\Http\Controllers\API\GuestController;
+use App\Http\Controllers\API\ContactMessageController;
+use App\Http\Controllers\API\ArtistApplicationController;
 
-// ---- HOME ----
-Route::get('/home', function () {
-    return response()->json([
-        "status" => "success",
-        "message" => "Bienvenue sur l'API de L'Orientale Espace",
-    ]);
+use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\StatisticsController;
+
+Route::post('/login', [AuthController::class, 'login']);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('/statistics', [StatisticsController::class, 'index']);
 });
 
-// ---- ARTISTS ----
-Route::get('/artists', function () {
-    return response()->json([
-        ["id" => 1, "name" => "Artiste 1"],
-        ["id" => 2, "name" => "Artiste 2"],
-    ]);
-});
+Route::apiResource('artists', ArtistController::class);
+Route::apiResource('events', EventController::class);
+Route::apiResource('announcements', AnnouncementController::class);
+Route::apiResource('members', MemberController::class);
+Route::apiResource('guests', GuestController::class);
+Route::apiResource('contact-messages', ContactMessageController::class);
+Route::apiResource('artist-applications', ArtistApplicationController::class);
 
-Route::get('/artists/{id}', function ($id) {
-    return response()->json([
-        "id" => $id,
-        "name" => "Artiste " . $id,
-        "bio" => "Biographie exemple",
-    ]);
-});
-
-Route::post('/artists/apply', function (Request $request) {
-    return response()->json([
-        "status" => "received",
-        "data" => $request->all(),
-    ]);
-});
-
-// ---- GUESTS ----
-Route::get('/guests', function () {
-    return response()->json([
-        ["id" => 1, "name" => "Invité 1"],
-        ["id" => 2, "name" => "Invité 2"],
-    ]);
-});
-
-// ---- ABOUT ----
-Route::get('/about', function () {
-    return response()->json([
-        "association" => "L'Orientale Espace",
-        "ville" => "Berkane",
-        "description" => "Espace culturel pour événements et expositions",
-    ]);
-});
-
-// ---- CONTACT ----
-Route::post('/contact', function (Request $request) {
-    return response()->json([
-        "status" => "sent",
-        "message" => "Votre message a été reçu",
-        "data" => $request->all(),
-    ]);
-});
+Route::get('/user', function (Request $request) {
+    return $request->user();
+})->middleware('auth:sanctum');
