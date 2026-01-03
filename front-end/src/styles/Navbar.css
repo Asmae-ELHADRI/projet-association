@@ -66,12 +66,12 @@
   border-radius: 50px;
   font-weight: 600;
   font-size: 0.9rem;
-  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 4px 15px rgba(234, 88, 12, 0.3);
 }
 
 .navbar-admin a:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+  box-shadow: 0 6px 20px rgba(234, 88, 12, 0.4);
 }
 
 @media (max-width: 768px) {
