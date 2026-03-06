@@ -1,5 +1,6 @@
 import { Link, NavLink } from 'react-router-dom';
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { Mail, MapPin, Phone } from 'lucide-react';
 import '../styles/Footer.css';
 
 const Footer = () => {
@@ -38,9 +39,9 @@ const Footer = () => {
 
         <div className="footer-contact">
           <h4>Contact</h4>
-          <p>Avenue Mohammed V, Berkane, Maroc</p>
-          <p>Email: contact@orientale-espace.ma</p>
-          <p>Tél: +212 5 36 61 XX XX</p>
+          <p><MapPin size={20} /> Avenue Mohammed V, Berkane, Maroc</p>
+          <p><Mail size={20} /> contact@orientale-espace.ma</p>
+          <p><Phone size={20} /> +212 5 36 61 XX XX</p>
         </div>
       </div>
       <div className="footer-bottom">

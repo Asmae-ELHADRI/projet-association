@@ -13,4 +13,9 @@ class Event extends Model
         'location',
         'image_path',
     ];
+
+    public function artists()
+    {
+        return $this->belongsToMany(Artist::class);
+    }
 }

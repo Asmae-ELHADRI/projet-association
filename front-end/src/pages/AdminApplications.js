@@ -58,6 +58,7 @@ const AdminApplications = () => {
                             <th>Nom</th>
                             <th>Email</th>
                             <th>Spécialité</th>
+                            <th>Portfolio</th>
                             <th>Status</th>
                             <th>Actions</th>
                         </tr>
@@ -68,6 +69,11 @@ const AdminApplications = () => {
                                 <td>{app.name}</td>
                                 <td>{app.email}</td>
                                 <td>{app.specialty}</td>
+                                <td>
+                                    {app.portfolio_file ? (
+                                        <a href={app.portfolio_file} target="_blank" rel="noopener noreferrer" className="text-link">Voir</a>
+                                    ) : 'N/A'}
+                                </td>
                                 <td>
                                     <span className={`status-badge ${app.status}`}>
                                         {app.status === 'pending' ? 'En attente' : app.status === 'accepted' ? 'Acceptée' : 'Refusée'}

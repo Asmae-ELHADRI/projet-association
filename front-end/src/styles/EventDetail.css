@@ -1,0 +1,132 @@
+.event-hero-premium {
+    position: relative;
+    padding: 12rem 0 8rem;
+    background: var(--midnight);
+    overflow: hidden;
+}
+
+.event-main-title {
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    margin: 2rem 0;
+}
+
+.event-meta-premium {
+    display: flex;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.meta-item-premium {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.meta-item-premium svg {
+    color: var(--primary-color);
+}
+
+.event-details-grid-premium {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 6rem;
+}
+
+.event-primary-image {
+    border-radius: var(--border-radius-xl);
+    padding: 2rem;
+    margin-bottom: 5rem;
+}
+
+.event-primary-image img {
+    width: 100%;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+}
+
+.event-narrative p {
+    font-size: 1.2rem;
+    line-height: 2;
+    color: var(--text-muted);
+}
+
+.sticky-sidebar {
+    position: sticky;
+    top: 120px;
+}
+
+.participants-card-premium {
+    padding: 3rem;
+    border-radius: var(--border-radius-xl);
+}
+
+.sidebar-line {
+    width: 40px;
+    height: 3px;
+    background: var(--accent-gradient);
+    margin-bottom: 2.5rem;
+}
+
+.artist-avatars-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.stacked-artist-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem;
+    border-radius: var(--border-radius-md);
+    transition: var(--transition);
+}
+
+.stacked-artist-item:hover {
+    background: white;
+    box-shadow: var(--shadow-sm);
+    transform: translateX(10px);
+}
+
+.mini-avatar-premium {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--accent-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.mini-avatar-premium img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.stacked-info strong {
+    display: block;
+    color: var(--midnight);
+    font-size: 1.05rem;
+}
+
+.stacked-info span {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+    .event-details-grid-premium {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+}

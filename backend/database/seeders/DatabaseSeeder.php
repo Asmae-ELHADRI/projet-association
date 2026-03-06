@@ -42,5 +42,31 @@ class DatabaseSeeder extends Seeder
             'title' => 'Nouvelle Adhésion Ouverte',
             'content' => 'Rejoignez notre communauté d\'artistes passionnés.'
         ]);
+
+        $artist = \App\Models\Artist::first();
+
+        if($artist) {
+            \App\Models\Artwork::create([
+                'artist_id' => $artist->id,
+                'title' => 'Paysage lumineux',
+                'style' => 'Impressionnisme',
+                'price' => 1500,
+                'dimensions' => '60x80',
+                'description' => 'Une belle scène.',
+                'image_path' => '/images/logo1.png', // Using existing image for now
+                'status' => 'available'
+            ]);
+
+            \App\Models\Artwork::create([
+                'artist_id' => $artist->id,
+                'title' => 'Portrait bleu',
+                'style' => 'Moderne',
+                'price' => 800,
+                'dimensions' => '50x70',
+                'description' => 'Portrait expressif.',
+                'image_path' => '/images/logo1.png',
+                'status' => 'available'
+            ]);
+        }
     }
 }

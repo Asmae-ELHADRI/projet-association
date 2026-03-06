@@ -1,0 +1,114 @@
+.gallery-grid-premium {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 3rem;
+}
+
+.painting-card-premium {
+  background: white;
+  border-radius: var(--border-radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-slow);
+  border: 1px solid rgba(15, 23, 42, 0.05);
+}
+
+.painting-card-premium:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.painting-img-wrapper {
+  position: relative;
+  height: 400px;
+}
+
+.painting-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-slow);
+}
+
+.painting-card-premium:hover .painting-img {
+  transform: scale(1.05);
+}
+
+.painting-placeholder-premium {
+  width: 100%;
+  height: 100%;
+  background: var(--bg-page);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  padding: 2rem;
+  text-align: center;
+}
+
+.painting-badge-status {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(8px);
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.painting-meta-premium {
+  padding: 2.5rem;
+}
+
+.p-artist-name {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary-color);
+  margin-bottom: 0.8rem;
+}
+
+.painting-meta-premium h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  color: var(--midnight);
+}
+
+.p-footer-premium {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(15, 23, 42, 0.05);
+}
+
+.p-price-tag {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--midnight);
+}
+
+.p-view-link {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.p-view-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .painting-img-wrapper {
+    height: 300px;
+  }
+}

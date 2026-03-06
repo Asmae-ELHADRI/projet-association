@@ -11,9 +11,16 @@ class ArtistController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Artist::all();
+        $isMember = $request->query('is_member');
+        $query = Artist::query();
+        
+        if ($isMember !== null) {
+            $query->where('is_member', filter_var($isMember, FILTER_VALIDATE_BOOLEAN));
+        }
+
+        return $query->get();
     }
 
     /**
@@ -39,7 +46,7 @@ class ArtistController extends Controller
      */
     public function show(Artist $artist)
     {
-        return $artist;
+        return $artist->load('artworks');
     }
 
     /**

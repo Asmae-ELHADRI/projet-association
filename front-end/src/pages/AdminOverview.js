@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import api from "../services/api";
+import { FiUsers, FiCalendar, FiFileText, FiShoppingBag, FiDollarSign } from "react-icons/fi";
 import "../styles/Dashboard.css";
 
 const AdminOverview = () => {
@@ -9,6 +10,8 @@ const AdminOverview = () => {
         members_count: 0,
         applications_pending_count: 0,
         announcements_count: 0,
+        orders_count: 0,
+        total_revenue: 0,
     });
 
     useEffect(() => {
@@ -24,11 +27,11 @@ const AdminOverview = () => {
     }, []);
 
     const statCards = [
-        { label: "Artistes", value: stats.artists_count, color: "#6366f1" },
-        { label: "Événements", value: stats.events_count, color: "#a855f7" },
-        { label: "Membres Équipe", value: stats.members_count, color: "#f59e0b" },
-        { label: "Candidatures", value: stats.applications_pending_count, color: "#ef4444" },
-        { label: "Annonces", value: stats.announcements_count, color: "#10b981" },
+        { label: "Ventes Totales", value: `€${stats.total_revenue || 0}`, icon: <FiDollarSign />, color: "#10b981" },
+        { label: "Commandes", value: stats.orders_count, icon: <FiShoppingBag />, color: "#6366f1" },
+        { label: "Candidatures", value: stats.applications_pending_count, icon: <FiFileText />, color: "#ef4444" },
+        { label: "Événements", value: stats.events_count, icon: <FiCalendar />, color: "#a855f7" },
+        { label: "Artistes", value: stats.artists_count, icon: <FiUsers />, color: "#f59e0b" },
     ];
 
     return (
@@ -40,9 +43,12 @@ const AdminOverview = () => {
 
             <div className="stats-grid">
                 {statCards.map((stat, idx) => (
-                    <div key={idx} className="glass-effect stat-card" style={{ borderLeft: `4px solid ${stat.color}` }}>
-                        <h3>{stat.value}</h3>
-                        <p>{stat.label}</p>
+                    <div key={idx} className="glass-effect stat-card" style={{ borderTop: `4px solid ${stat.color}` }}>
+                        <div className="stat-icon" style={{ color: stat.color }}>{stat.icon}</div>
+                        <div className="stat-info">
+                            <h3>{stat.value}</h3>
+                            <p>{stat.label}</p>
+                        </div>
                     </div>
                 ))}
             </div>

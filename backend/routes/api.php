@@ -9,6 +9,8 @@ use App\Http\Controllers\API\MemberController;
 use App\Http\Controllers\API\GuestController;
 use App\Http\Controllers\API\ContactMessageController;
 use App\Http\Controllers\API\ArtistApplicationController;
+use App\Http\Controllers\API\ArtworkController;
+use App\Http\Controllers\API\OrderController;
 
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\StatisticsController;
@@ -27,6 +29,8 @@ Route::apiResource('members', MemberController::class);
 Route::apiResource('guests', GuestController::class);
 Route::apiResource('contact-messages', ContactMessageController::class);
 Route::apiResource('artist-applications', ArtistApplicationController::class);
+Route::apiResource('paintings', ArtworkController::class);
+Route::apiResource('orders', OrderController::class);
 
 Route::get('/user', function (Request $request) {
     return $request->user();

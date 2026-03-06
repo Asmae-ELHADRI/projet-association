@@ -30,88 +30,109 @@ const Contact = () => {
   };
 
   return (
-    <div className="form-page">
-      <section className="form-hero">
-        <div className="container fade-in">
-          <h1>Contactez-<span>Nous</span></h1>
-          <p>Une question ? Une proposition ? Nous sommes à votre écoute.</p>
+    <div className="contact-page fade-in-up">
+      <section className="artists-hero contact-hero" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1523966211575-eb4a01e7dd51?auto=format&fit=crop&q=80&w=2020')" }}>
+        <div className="hero-overlay"></div>
+        <div className="container">
+          <span className="subtitle-tag on-dark">Parlons d'Art</span>
+          <h1 className="serif text-white">Contactez-<span className="text-gradient">Nous</span></h1>
+          <p className="text-white-muted">Une question ? Une proposition de collaboration ? Notre équipe est à votre entière disposition.</p>
         </div>
       </section>
 
       <section className="container section-padding">
-        <div className="contact-grid">
-          <div className="contact-info-cards fade-in">
-            <div className="glass-effect contact-card">
-              <FaPhone className="contact-icon" />
-              <h3>Téléphone</h3>
-              <p>+212 5 36 61 XX XX</p>
-            </div>
-            <div className="glass-effect contact-card">
-              <FaEnvelope className="contact-icon" />
-              <h3>Email</h3>
-              <p>contact@orientale-espace.ma</p>
-            </div>
-            <div className="glass-effect contact-card">
-              <FaMapMarkerAlt className="contact-icon" />
-              <h3>Adresse</h3>
-              <p>Avenue Mohammed V, Berkane, Maroc</p>
+        <div className="contact-main-grid">
+          <div className="contact-visual-info">
+            <h2 className="serif">Nos <span className="text-gradient">Coordonnées</span></h2>
+            <div className="header-line"></div>
+            <p className="contact-intro">N'hésitez pas à nous rendre visite ou à nous contacter par les moyens suivants.</p>
+
+            <div className="contact-cards-stack">
+              <div className="premium-contact-card glass-effect">
+                <div className="contact-i-wrapper"><FaPhone /></div>
+                <div>
+                  <h4>Téléphone</h4>
+                  <p>+212 5 36 61 XX XX</p>
+                </div>
+              </div>
+              <div className="premium-contact-card glass-effect">
+                <div className="contact-i-wrapper"><FaEnvelope /></div>
+                <div>
+                  <h4>Email</h4>
+                  <p>contact@orientale-espace.ma</p>
+                </div>
+              </div>
+              <div className="premium-contact-card glass-effect">
+                <div className="contact-i-wrapper"><FaMapMarkerAlt /></div>
+                <div>
+                  <h4>Adresse</h4>
+                  <p>Avenue Mohammed V, Berkane, Maroc</p>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="glass-effect form-card fade-in">
-            {success ? (
-              <div className="text-center">
-                <div className="success-icon">✓</div>
-                <h2>Message envoyé !</h2>
-                <p>Nous vous répondrons dans les plus brefs délais.</p>
-                <button className="btn-primary" onClick={() => setSuccess(false)}>Envoyer un autre message</button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                  <label>Nom complet</label>
-                  <input
-                    type="text"
-                    placeholder="Votre nom"
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    required
-                  />
+          <div className="contact-form-premium-wrapper">
+            <div className="form-card-premium glass-effect">
+              {success ? (
+                <div className="form-success-state text-center">
+                  <div className="premium-success-icon">✓</div>
+                  <h2 className="serif">Message Transmis</h2>
+                  <p>Votre demande a bien été reçue. Nous reviendrons vers vous avec une réponse artistique dans les plus brefs délais.</p>
+                  <button className="btn-secondary" onClick={() => setSuccess(false)}>Nouvel envoi</button>
                 </div>
-                <div className="form-group">
-                  <label>Email</label>
-                  <input
-                    type="email"
-                    placeholder="votre@email.com"
-                    value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    required
-                  />
-                </div>
-                <div className="form-group">
-                  <label>Sujet</label>
-                  <input
-                    type="text"
-                    placeholder="Sujet de votre message"
-                    value={form.subject}
-                    onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                  />
-                </div>
-                <div className="form-group">
-                  <label>Message</label>
-                  <textarea
-                    placeholder="Votre message..."
-                    value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    rows="5"
-                    required
-                  />
-                </div>
-                <button type="submit" className="btn-primary w-full" disabled={loading}>
-                  {loading ? "Envoi en cours..." : "Envoyer le message"}
-                </button>
-              </form>
-            )}
+              ) : (
+                <form onSubmit={handleSubmit} className="premium-form">
+                  <div className="premium-form-row">
+                    <div className="premium-form-group">
+                      <label>Votre Nom</label>
+                      <input
+                        type="text"
+                        placeholder="Jean Dupont"
+                        value={form.name}
+                        onChange={(e) => setForm({ ...form, name: e.target.value })}
+                        required
+                      />
+                    </div>
+                    <div className="premium-form-group">
+                      <label>Adresse Email</label>
+                      <input
+                        type="email"
+                        placeholder="jean@exemple.com"
+                        value={form.email}
+                        onChange={(e) => setForm({ ...form, email: e.target.value })}
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div className="premium-form-group">
+                    <label>Objet du Message</label>
+                    <input
+                      type="text"
+                      placeholder="Demande d'informations..."
+                      value={form.subject}
+                      onChange={(e) => setForm({ ...form, subject: e.target.value })}
+                    />
+                  </div>
+
+                  <div className="premium-form-group">
+                    <label>Votre Message</label>
+                    <textarea
+                      placeholder="Expliquez-nous comment nous pouvons vous aider..."
+                      value={form.message}
+                      onChange={(e) => setForm({ ...form, message: e.target.value })}
+                      rows="6"
+                      required
+                    />
+                  </div>
+
+                  <button type="submit" className="btn-primary btn-xl w-full" disabled={loading}>
+                    {loading ? "Transmission..." : "Envoyer le Message"}
+                  </button>
+                </form>
+              )}
+            </div>
           </div>
         </div>
       </section>

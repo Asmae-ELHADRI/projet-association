@@ -9,6 +9,7 @@ use App\Models\Event;
 use App\Models\Member;
 use App\Models\ArtistApplication;
 use App\Models\Announcement;
+use App\Models\Order;
 
 class StatisticsController extends Controller
 {
@@ -20,6 +21,8 @@ class StatisticsController extends Controller
             'members_count' => Member::count(),
             'applications_pending_count' => ArtistApplication::where('status', 'pending')->count(),
             'announcements_count' => Announcement::count(),
+            'orders_count' => Order::count(),
+            'total_revenue' => Order::sum('total_amount'),
         ]);
     }
 }
